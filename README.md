@@ -12,15 +12,15 @@ Deployment: Web interface via Streamlit, deployable on Render.
 
 Prerequisites
 
-Python 3.10 (recommended due to compatibility with dependencies)
+Python 3.10 (required for compatibility with TensorFlow and other dependencies)
 Git
 Render account
 GitHub account
 
 Installation
 
-Clone the repository:git clone https://github.com/your-username/xauusd_trading_strategy.git
-cd xauusd_trading_strategy
+Clone the repository:git clone https://github.com/Farnam123/new123.git
+cd new123
 
 
 Create and activate a virtual environment (optional):python3.10 -m venv venv
@@ -42,10 +42,10 @@ Deploying on Render
 
 Create a new repository on GitHub and push the project files.
 Log in to Render and create a new web service.
-Connect your GitHub repository.
+Connect your GitHub repository (https://github.com/Farnam123/new123).
 Configure the service:
 Environment: Python 3
-Python Version: 3.10
+Python Version: 3.10 (set in Render's advanced settings)
 Build Command: pip install -r requirements.txt
 Start Command: Defined in Procfile (web: streamlit run app.py --server.port $PORT)
 
@@ -80,10 +80,11 @@ Real-time Data: Current signals use historical data. For live signals, integrate
 Testing: Test signals in Ott Market's demo account before live trading.
 
 Troubleshooting
-If you encounter build errors on Render (e.g., Cannot import 'setuptools.build_meta'):
+If you encounter build errors on Render (e.g., No matching distribution found for tensorflow):
 
-Ensure setuptools is included in requirements.txt.
-Use Python 3.10 instead of 3.13 for better compatibility.
+Ensure Python 3.10 is selected in Render's advanced settings.
+Verify setuptools and wheel are included in requirements.txt.
+If using Render's free plan, consider upgrading to a paid plan for sufficient resources to build TensorFlow.
 Check Render logs for specific dependency issues.
 
 Contributing
