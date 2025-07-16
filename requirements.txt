@@ -8,3 +8,4 @@ tensorflow==2.16.1
 streamlit-autorefresh==1.0.1
 setuptools==75.1.0
 wheel==0.44.0
+Cython==3.0.11
