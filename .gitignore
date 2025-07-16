@@ -1,0 +1,33 @@
+# Python virtual environment
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.log
+*.cache
+*.tmp
+
+# Dependency directories
+node_modules/
+dist/
+build/
+
+# Environment variables
+.env
+*.env
