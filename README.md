@@ -1,5 +1,5 @@
 XAU/USD Trading Strategy
-This project implements a trading strategy for XAU/USD (Gold) to generate buy and sell signals using advanced technical indicators and machine learning models. The strategy is designed for use with the Ott Market exchange, leveraging a 1:200 leverage and a 1% risk per trade. The signals are displayed through a web interface powered by Streamlit, deployed on Render.
+This project implements a trading strategy for XAU/USD (Gold) to generate buy and sell signals using advanced technical indicators and machine learning models. The strategy is designed for use with the Ott Market exchange, leveraging a 1:200 leverage and a 1% risk per trade. The signals are displayed through a web interface powered by Streamlit, deployable on Render or alternatives like Railway/Koyeb.
 Features
 
 Indicators: RSI, MACD, ADX, Stochastic, Volume Profile, VWAP, Ichimoku Cloud, Fibonacci, and more.
@@ -8,13 +8,13 @@ Filters: Minimum 3 patterns, RSI <25/>75, Volume >2*MA, ADX >25, MACD confirmati
 Trading Hours: 9:00–16:00 (London time).
 Win Rate: ~91.63% based on historical data.
 Models: XGBoost and LSTM for signal prediction.
-Deployment: Web interface via Streamlit, deployable on Render.
+Deployment: Web interface via Streamlit, deployable on Render, Railway, or Koyeb.
 
 Prerequisites
 
 Python 3.10 (required for compatibility with TensorFlow and other dependencies)
 Git
-Render account
+Render, Railway, or Koyeb account
 GitHub account
 
 Installation
@@ -51,6 +51,19 @@ Start Command: Defined in Procfile (web: streamlit run app.py --server.port $POR
 
 
 Deploy the service. Access the app via the provided Render URL.
+Note: The free plan may fail due to limited CPU/memory. Consider upgrading to the Starter plan (~$7/month).
+
+Deploying on Railway (Alternative)
+
+Create an account on Railway.
+Connect your GitHub repository (https://github.com/Farnam123/new123).
+Configure:
+Environment: Python 3.10
+Build Command: pip install -r requirements.txt
+Start Command: streamlit run app.py --server.port $PORT
+
+
+Deploy and access the app via the Railway URL.
 
 Usage
 
@@ -78,13 +91,14 @@ Margin: 15.38 lots (default) is not feasible for a $1,000 account (requires ~$76
 Spread: Account for XAU/USD spread (~0.3 pips) in manual trades.
 Real-time Data: Current signals use historical data. For live signals, integrate with MT5 or Ott Market's API.
 Testing: Test signals in Ott Market's demo account before live trading.
+Render Free Plan: Limited CPU/memory may cause build failures for TensorFlow. Consider Railway or upgrading to Render's Starter plan (~$7/month).
 
 Troubleshooting
-If you encounter build errors on Render (e.g., No matching distribution found for tensorflow):
+If you encounter build errors (e.g., No matching distribution found for tensorflow):
 
 Ensure Python 3.10 is selected in Render's advanced settings.
 Verify setuptools and wheel are included in requirements.txt.
-If using Render's free plan, consider upgrading to a paid plan for sufficient resources to build TensorFlow.
+Upgrade to Render's Starter plan or try Railway/Koyeb if build fails due to insufficient resources.
 Check Render logs for specific dependency issues.
 
 Contributing
